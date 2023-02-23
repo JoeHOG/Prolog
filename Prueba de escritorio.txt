@@ -1,0 +1,26 @@
+bool verifica (char input){
+	char centinela='c';
+	stack <char> pila;
+	pila.push(centinela);
+	for(char x: input){
+		cout <<"Caracter evaluador"<<x<<endl;
+		if(x=='(')
+			pila.push('x');
+			else if (x==')'){
+				if(pila.top()==centinela)
+				return false;
+				pila.pop();
+			}
+	}
+	return pila.top()==centinela;
+}
+int main (){
+	string input;
+	cout<<"Ingresa una secuencia de parentesis"<<endl;
+	cin>>input;
+	if(verifica(input))
+	cout<<"Secuencia balanceada"<<endl;
+	else
+	cout<<"Secuencia no balanceada"<<endl;
+	return 0;
+}
